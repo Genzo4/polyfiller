@@ -2,3 +2,4 @@ opencv-contrib-python
 numpy
 utilspy-g4
 pytest
+pytest-sugar
