@@ -26,6 +26,7 @@ Download and install the package:
 ```bash
 $ git clone https://github.com/Genzo4/polyfiller
 $ cd polyfiller
+$ pip install -r requirements.txt
 $ pip install .
 ```
 
@@ -99,6 +100,7 @@ $ pip install polyfiller-g4
 ```bash
 $ git clone https://github.com/Genzo4/polyfiller
 $ cd polyfiller
+$ pip install -r requirements.txt
 $ pip install .
 ```
 
