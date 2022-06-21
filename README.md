@@ -70,6 +70,7 @@ Output files are created with the extension added.
 
 See the example.py file for an example of usage.
 
+[Changelog](https://github.com/Genzo4/polyfiller/blob/main/CHANGELOG.md)
 ***
 
 ![Language](https://img.shields.io/badge/Русский-brigthgreen)
@@ -142,3 +143,5 @@ pf.fill('frame_n.png')
 ![Output frame](https://github.com/Genzo4/polyfiller/raw/main/images/frame_1.fill.png "Output frame")
 
 Пример использования см. в файле example.py
+
+[Changelog](https://github.com/Genzo4/polyfiller/blob/main/CHANGELOG.md)
