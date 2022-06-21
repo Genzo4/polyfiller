@@ -4,6 +4,7 @@ import glob
 import cv2
 from polyfiller_g4 import PolyFiller
 from itertools import chain
+from utilspy_g4 import compareFrames
 
 
 def _removeTempFiles() -> None:
@@ -84,11 +85,7 @@ def test_8():
 
     pf.fill('tests/images/frame_1.png')
 
-    frame = cv2.imread('tests/images/frame_1.png')
-    frameFill = cv2.imread('tests/images/frame_1.fill.png')
-    diff = cv2.norm(frame, frameFill, cv2.NORM_L2)
-
-    assert diff == 0.0
+    assert compareFrames('tests/images/frame_1.png', 'tests/images/frame_1.fill.png') == True
 
 
 def test_9():
