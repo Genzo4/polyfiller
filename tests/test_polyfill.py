@@ -4,7 +4,7 @@ import glob
 import cv2
 from polyfiller_g4 import PolyFiller
 from itertools import chain
-from utilspy_g4 import compareFrames
+from utilspy_g4 import compareFrames, templatedRemoveFiles
 
 
 def _removeTempFiles() -> None:
@@ -14,11 +14,7 @@ def _removeTempFiles() -> None:
     :return: None
     """
 
-    removeFiles = glob.iglob('tests/images/*.fill.*')
-    removeFiles = chain(removeFiles, glob.iglob('tests/images/*.fill2.*'))
-
-    for _file in removeFiles:
-        os.remove(_file)
+    templatedRemoveFiles('tests/images/*.fill.*')
 
 
 def test_1():
