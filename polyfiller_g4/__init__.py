@@ -1,6 +1,7 @@
 import cv2
 import numpy
 from utilspy_g4 import add_ext
+from functools import singledispatchmethod
 
 
 class PolyFiller:
@@ -26,7 +27,12 @@ class PolyFiller:
 
         self._polygons.append(polygon)
 
-    def fill(self, frame_path: str) -> None:
+    @singledispatchmethod
+    def fill(self, frame_path) -> None:
+        raise NotImplementedError(f"Cannot format value of type {type(frame_path)}")
+
+    @fill.register
+    def _(self, frame_path: str) -> None:
         """
 
         :param frame_path:
@@ -34,7 +40,19 @@ class PolyFiller:
         """
 
         frame = cv2.imread(frame_path)
+        frame = self.fill(frame)
+        cv2.imwrite(add_ext(frame_path, self._ext), frame)
+
+    @fill.register
+    def _(self, frame: numpy.ndarray) -> numpy.ndarray:
+        """
+
+        :param frame:
+        :return: None
+        """
+
         for row in self._polygons:
             polygon = numpy.array([row], dtype=numpy.int32)
             cv2.fillPoly(frame, polygon, self._color)
-        cv2.imwrite(add_ext(frame_path, self._ext), frame)
+
+        return frame
