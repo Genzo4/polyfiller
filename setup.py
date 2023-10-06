@@ -8,7 +8,7 @@ with open(path.join(top_level_directory, 'README.md'), encoding='utf-8') as file
 
 setup(
    name='polyfiller_g4',
-   version='1.1.1',
+   version='1.2.0',
    description='Polygon Filler',
    long_description=long_description,
    long_description_content_type='text/markdown',
@@ -40,6 +40,6 @@ setup(
    keywords=['polyfiller', 'poly filler', 'polygon filler', 'opencv', 'opencv-contrib-python', 'g4'],
    license='MIT',
    packages=['polyfiller_g4'],
-   install_requires=['opencv-contrib-python', 'numpy', 'utilspy-g4>=2.2.0', 'compare_frames_g4'],
+   install_requires=['opencv-contrib-python<4.6', 'numpy', 'utilspy-g4>=2.2.0'],
    python_requires='>=3.6'
 )
